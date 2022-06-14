@@ -50,8 +50,9 @@ const computeSubTotal = () => {
     for (let i = 0; i < menuItems.length; i++) {
         subTotal += menuItems[i].price * menuItems[i].count;
     }
-    document.getElementById("SubTotal").innerHTML =
-        "$" + parseFloat(subTotal).toFixed(2);
+    document.getElementById("SubTotal").innerHTML = `$ ${parseFloat(
+    subTotal
+  ).toFixed(2)}`;
     return subTotal;
 };
 
@@ -59,10 +60,11 @@ const computeTotal = () => {
     let tax = 0;
     let baseTotal = computeSubTotal();
     tax = baseTotal * 0.0975;
-    document.getElementById("Tax").innerHTML = "$" + parseFloat(tax).toFixed(2);
+    document.getElementById("Tax").innerHTML = `$  ${parseFloat(tax).toFixed(2)}`;
     let total = baseTotal + tax;
-    document.getElementById("Total").innerHTML =
-        "$" + parseFloat(total).toFixed(2);
+    document.getElementById("Total").innerHTML = `$  ${parseFloat(total).toFixed(
+    2
+  )}`;
 };
 
 const updateItemCount = (index, sign) => {
@@ -99,18 +101,24 @@ const findIndex = (id) => {
 };
 
 function displayCartItems(index, itemId) {
-    if (menuItems[index].count < 1)
-        document.getElementById(itemId).style.display = "none";
-    else document.getElementById(itemId).style.display = "block";
+    menuItems[index].count < 1 ?
+        (document.getElementById(itemId).style.display = "none") :
+        (document.getElementById(itemId).style.display = "block");
 }
 
 function displayCartContent(index) {
     let updateQuantity = document.getElementsByClassName("quantity");
     updateQuantity[2 * index].innerHTML = menuItems[index].count;
     updateQuantity[2 * index + 1].innerHTML = menuItems[index].count;
-    document.getElementsByClassName("subtotal")[index].innerHTML =
-        "$" +
-        parseFloat(menuItems[index].count * menuItems[index].price).toFixed(2);
+    document.getElementsByClassName("subtotal")[index].innerHTML = `$ 
+        ${parseFloat(menuItems[index].count * menuItems[index].price).toFixed(
+          2
+        )}`;
+}
+
+function emptyCartMessage(id1, id2) {
+    document.getElementById(id1).style.display = "block";
+    document.getElementById(id2).style.display = "none";
 }
 
 function addToCart(event) {
@@ -122,12 +130,9 @@ function addToCart(event) {
     classname.className = "in-cart";
     updateItemCount(index, "+");
     computeTotal();
-    document.getElementById("emptyMessage").style.display = "none";
-    document.getElementById("cartItems").style.display = "block";
+    emptyCartMessage("cartItems", "emptyMessage");
     let itemId = "item" + (index + 1);
-    if (menuItems[index].count < 1)
-        document.getElementById(itemId).style.display = "none";
-    else document.getElementById(itemId).style.display = "block";
+    displayCartItems(index, itemId);
     displayCartContent(index);
 }
 
@@ -139,8 +144,7 @@ function handleAddItem(index, id) {
     let itemId = "item" + (index + 1);
     displayCartItems(index, itemId);
     if (totalItems === 0) {
-        document.getElementById("emptyMessage").style.display = "block";
-        document.getElementById("cartItems").style.display = "none";
+        emptyCartMessage("emptyMessage", "cartItems");
     }
 }
 
