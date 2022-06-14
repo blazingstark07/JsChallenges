@@ -157,13 +157,23 @@ document.addEventListener("keydown", (event) => {
 });
 
 function getElementId(event) {
+    let getId = parseInt(event.target.id.slice(8));
     if (!shiftPress) {
-        firstElement = parseInt(event.target.id.slice(8));
+        firstElement = getId;
     } else {
-        lastElement = parseInt(event.target.id.slice(8));
-        shiftPress = false;
+        lastElement = getId;
     }
-    for (let i = firstElement; i < lastElement; i++) {
-        document.getElementById("episode-" + i).checked = true;
+    console.log(firstElement, lastElement);
+    if (shiftPress) {
+        if (firstElement < lastElement) {
+            for (let i = firstElement; i < lastElement + 1; i++) {
+                document.getElementById("episode-" + i).checked = true;
+            }
+        } else {
+            for (let i = lastElement; i < firstElement + 1; i++) {
+                document.getElementById("episode-" + i).checked = true;
+            }
+        }
+        shiftPress = false;
     }
 }
