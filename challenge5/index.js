@@ -1,6 +1,7 @@
-import { getElementId } from "./utility.js";
+import { getElementId, addToUl } from "./utility.js";
 
 var shiftPress = false;
+addToUl();
 
 window.handleClick = (event) => {
     document.addEventListener("keydown", (event) => {

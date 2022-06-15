@@ -170,3 +170,26 @@ export function getElementId(event, shiftPress) {
         }
     }
 }
+
+const displayList = (item) => {
+    let liElement = document.createElement("li");
+    let labelElement = document.createElement("label");
+    labelElement.setAttribute("for", `episode-${item.id}`);
+    let inputElement = document.createElement("input");
+    inputElement.type = "checkbox";
+    inputElement.name = `episode-${item.id}`;
+    inputElement.setAttribute("id", `episode-${item.id}`);
+    inputElement.setAttribute("onclick", "handleClick(event)");
+    labelElement.appendChild(inputElement);
+    let spanElement = document.createElement("span");
+    spanElement.innerHTML = `${item.id} || ${item.name}`;
+    labelElement.appendChild(spanElement);
+    liElement.appendChild(labelElement);
+    return liElement;
+};
+export const addToUl = () => {
+    let ulElement = document.querySelector(".episodes");
+    for (let i = 0; i < episodes.length; i++) {
+        ulElement.appendChild(displayList(episodes[i]));
+    }
+};
