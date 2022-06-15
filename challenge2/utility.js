@@ -42,9 +42,6 @@ const menuItems = [{
     },
 ];
 
-var totalItems = 0;
-document.getElementById("cartItems").style.display = "none";
-
 const computeSubTotal = () => {
     let subTotal = 0;
     for (let i = 0; i < menuItems.length; i++) {
@@ -55,7 +52,6 @@ const computeSubTotal = () => {
   ).toFixed(2)}`;
     return subTotal;
 };
-
 const computeTotal = () => {
     let tax = 0;
     let baseTotal = computeSubTotal();
@@ -66,8 +62,7 @@ const computeTotal = () => {
     2
   )}`;
 };
-
-const updateItemCount = (index, sign) => {
+const updateItemCount = (index, sign, totalItems) => {
     if (sign === "+") {
         menuItems[index].count += 1;
         totalItems += 1;
@@ -121,14 +116,14 @@ function emptyCartMessage(id1, id2) {
     document.getElementById(id2).style.display = "none";
 }
 
-function addToCart(event) {
+export function addToCart(event, totalItems) {
     let elementId = event.target.id;
     document.getElementById(elementId).disabled = true;
     let index = findIndex(elementId);
     let classname = event.path[0];
     classname.innerText = "In cart";
     classname.className = "in-cart";
-    updateItemCount(index, "+");
+    updateItemCount(index, "+", totalItems);
     computeTotal();
     emptyCartMessage("cartItems", "emptyMessage");
     let itemId = "item" + (index + 1);
@@ -136,9 +131,9 @@ function addToCart(event) {
     displayCartContent(index);
 }
 
-function handleAddItem(index, id) {
-    if (id === "increase") updateItemCount(index, "+");
-    else if (id === "decrease") updateItemCount(index, "-");
+export function handleAddItem(index, id, totalItems) {
+    if (id === "increase") updateItemCount(index, "+", totalItems);
+    else if (id === "decrease") updateItemCount(index, "-", totalItems);
     computeTotal();
     displayCartContent(index);
     let itemId = "item" + (index + 1);
@@ -146,14 +141,4 @@ function handleAddItem(index, id) {
     if (totalItems === 0) {
         emptyCartMessage("emptyMessage", "cartItems");
     }
-}
-
-function clickedOnImg(index, event) {
-    let id = event.target.parentNode.id;
-    handleAddItem(index, id);
-}
-
-function updateFromCart(index, event) {
-    let element = event.target.id;
-    handleAddItem(index, element);
 }

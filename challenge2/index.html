@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>02 - E-Commerce Component || Advent of JavaScript</title>
-    <link rel="stylesheet" href="./shoppingStyle.css" />
+    <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
@@ -21,7 +21,7 @@
                     <div class="content">
                         <p class="menu-item">French Fries with Ketchup</p>
                         <p class="price">$2.23</p>
-                        <button class="add" id="Fries" onclick="addToCart(event)">
+                        <button class="add" id="Fries" onclick="addToCartHandler(event)">
                 <img style="display: none" src="images/check.svg" alt="Check" />
                 Add to cart
               </button>
@@ -34,7 +34,7 @@
                     <div class="content">
                         <p class="menu-item">Salmon and Vegetables</p>
                         <p class="price">$5.12</p>
-                        <button class="add" id="Salmon" onclick="addToCart(event)">
+                        <button class="add" id="Salmon" onclick="addToCartHandler(event)">
                 <img style="display: none" src="images/check.svg" alt="Check" />
                 Add to Cart
               </button>
@@ -47,7 +47,7 @@
                     <div class="content">
                         <p class="menu-item">Spaghetti with Meat Sauce</p>
                         <p class="price">$7.82</p>
-                        <button class="add" id="Spaghetti" onclick="addToCart(event)">
+                        <button class="add" id="Spaghetti" onclick="addToCartHandler(event)">
                 <img style="display: none" src="images/check.svg" alt="Check" />
                 Add to Cart
               </button>
@@ -60,7 +60,7 @@
                     <div class="content">
                         <p class="menu-item">Bacon, Eggs, and Toast</p>
                         <p class="price">$5.99</p>
-                        <button class="add" id="Bacon" onclick="addToCart(event)">
+                        <button class="add" id="Bacon" onclick="addToCartHandler(event)">
                 <img style="display: none" src="images/check.svg" alt="Check" />
                 Add to Cart
               </button>
@@ -73,7 +73,7 @@
                     <div class="content">
                         <p class="menu-item">Chicken Salad with Parmesan</p>
                         <p class="price">$6.98</p>
-                        <button class="add" id="Chicken" onclick="addToCart(event)">
+                        <button class="add" id="Chicken" onclick="addToCartHandler(event)">
                 <img style="display: none" src="images/check.svg" alt="Check" />
                 Add to Cart
               </button>
@@ -86,7 +86,7 @@
                     <div class="content">
                         <p class="menu-item">Fish Sticks and Fries</p>
                         <p class="price">$6.34</p>
-                        <button class="add" id="Fish" onclick="addToCart(event)">
+                        <button class="add" id="Fish" onclick="addToCartHandler(event)">
                 <img style="display: none" src="images/check.svg" alt="Check" />
                 Add to Cart
               </button>
@@ -95,7 +95,7 @@
             </ul>
         </div>
         <div>
-            <a href="../home.html"><button class="goHome">Home</button></a>
+            <a href="../index.html"><button class="goHome">Home</button></a>
         </div>
 
         <div class="panel cart">
@@ -113,14 +113,17 @@
                         <p class="price">$2.23</p>
                     </div>
                     <div class="quantity__wrapper">
-                        <button class="decrease" id="decrease" onclick="updateFromCart(0,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(0,event)" />
-              </button>
-                        <div class="quantity">1</div>
-                        <button class="increase" id="increase" onclick="updateFromCart(0,event)">
+                        <button class="decrease" id="decrease">
                 <img
                   src="images/chevron.svg"
-                  onclick="clickedOnImg(0, event)"
+                  onclick="clickedOnImgHandler(0,event)"
+                />
+              </button>
+                        <div class="quantity">1</div>
+                        <button class="increase" id="increase">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(0, event)"
                 />
               </button>
                     </div>
@@ -137,12 +140,18 @@
                         <p class="price">$5.12</p>
                     </div>
                     <div class="quantity__wrapper">
-                        <button class="decrease" id="decrease" onclick="updateFromCart(1,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(1,event)" />
+                        <button class="decrease" id="decrease">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(1,event)"
+                />
               </button>
                         <div class="quantity">1</div>
-                        <button class="increase" id="increase" onclick="updateFromCart(1,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(1,event)" />
+                        <button class="increase" id="increase">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(1,event)"
+                />
               </button>
                     </div>
                     <div class="subtotal">$5.12</div>
@@ -158,12 +167,18 @@
                         <p class="price">$7.82</p>
                     </div>
                     <div class="quantity__wrapper">
-                        <button class="decrease" id="decrease" onclick="updateFromCart(2,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(2,event)" />
+                        <button class="decrease" id="decrease">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(2,event)"
+                />
               </button>
                         <div class="quantity">1</div>
-                        <button class="increase" id="increase" onclick="updateFromCart(2,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(2,event)" />
+                        <button class="increase" id="increase">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(2,event)"
+                />
               </button>
                     </div>
                     <div class="subtotal">$7.82</div>
@@ -179,12 +194,18 @@
                         <p class="price">$5.99</p>
                     </div>
                     <div class="quantity__wrapper">
-                        <button class="decrease" id="decrease" onclick="updateFromCart(3,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(3,event)" />
+                        <button class="decrease" id="decrease">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(3,event)"
+                />
               </button>
                         <div class="quantity">1</div>
-                        <button class="increase" id="increase" onclick="updateFromCart(3,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(3,event)" />
+                        <button class="increase" id="increase">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(3,event)"
+                />
               </button>
                     </div>
                     <div class="subtotal">$5.99</div>
@@ -200,12 +221,18 @@
                         <p class="price">$6.98</p>
                     </div>
                     <div class="quantity__wrapper">
-                        <button class="decrease" id="decrease" onclick="updateFromCart(4,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(4,event)" />
+                        <button class="decrease" id="decrease">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(4,event)"
+                />
               </button>
                         <div class="quantity">1</div>
-                        <button class="increase" id="increase" onclick="updateFromCart(4,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(4,event)" />
+                        <button class="increase" id="increase">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(4,event)"
+                />
               </button>
                     </div>
                     <div class="subtotal">$6.98</div>
@@ -221,12 +248,18 @@
                         <p class="price">$6.34</p>
                     </div>
                     <div class="quantity__wrapper">
-                        <button class="decrease" id="decrease" onclick="updateFromCart(5,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(5,event)" />
+                        <button class="decrease" id="decrease">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(5,event)"
+                />
               </button>
                         <div class="quantity">1</div>
-                        <button class="increase" id="increase" onclick="updateFromCart(5,event)">
-                <img src="images/chevron.svg" onclick="clickedOnImg(5,event)" />
+                        <button class="increase" id="increase">
+                <img
+                  src="images/chevron.svg"
+                  onclick="clickedOnImgHandler(5,event)"
+                />
               </button>
                     </div>
                     <div class="subtotal">$6.34</div>
@@ -249,7 +282,7 @@
         </div>
     </div>
 
-    <script src="./shoppingApp.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
