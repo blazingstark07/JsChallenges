@@ -148,10 +148,10 @@ const episodes = [{
     },
 ];
 
-var firstElement = -1;
-var lastElement = -1;
+let firstElement = -1;
+let lastElement = -1;
 
-export const getElementId = (event, shiftPress) => {
+export const getTickDone = (event, shiftPress) => {
     let getId = parseInt(event.target.id.slice(8));
     if (!shiftPress) {
         firstElement = getId;
@@ -174,16 +174,20 @@ export const getElementId = (event, shiftPress) => {
 const displayList = (item) => {
     let liElement = document.createElement("li");
     let labelElement = document.createElement("label");
-    labelElement.setAttribute("for", `episode-${item.id}`);
     let inputElement = document.createElement("input");
+    let spanElement = document.createElement("span");
+
+    labelElement.setAttribute("for", `episode-${item.id}`);
     inputElement.type = "checkbox";
     inputElement.name = `episode-${item.id}`;
     inputElement.setAttribute("id", `episode-${item.id}`);
     inputElement.setAttribute("onclick", "handleClick(event)");
+
     labelElement.appendChild(inputElement);
-    let spanElement = document.createElement("span");
+
     spanElement.innerHTML = `${item.id} || ${item.name}`;
     labelElement.appendChild(spanElement);
+
     liElement.appendChild(labelElement);
     return liElement;
 };
