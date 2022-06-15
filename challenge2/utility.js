@@ -95,13 +95,13 @@ const findIndex = (id) => {
     }
 };
 
-function displayCartItems(index, itemId) {
+const displayCartItems = (index, itemId) => {
     menuItems[index].count < 1 ?
         (document.getElementById(itemId).style.display = "none") :
         (document.getElementById(itemId).style.display = "block");
-}
+};
 
-function displayCartContent(index) {
+const displayCartContent = (index) => {
     let updateQuantity = document.getElementsByClassName("quantity");
     updateQuantity[2 * index].innerHTML = menuItems[index].count;
     updateQuantity[2 * index + 1].innerHTML = menuItems[index].count;
@@ -109,14 +109,14 @@ function displayCartContent(index) {
         ${parseFloat(menuItems[index].count * menuItems[index].price).toFixed(
           2
         )}`;
-}
+};
 
-function emptyCartMessage(id1, id2) {
+const emptyCartMessage = (id1, id2) => {
     document.getElementById(id1).style.display = "block";
     document.getElementById(id2).style.display = "none";
-}
+};
 
-export function addToCart(event, totalItems) {
+export const addToCart = (event, totalItems) => {
     let elementId = event.target.id;
     document.getElementById(elementId).disabled = true;
     let index = findIndex(elementId);
@@ -129,9 +129,9 @@ export function addToCart(event, totalItems) {
     let itemId = "item" + (index + 1);
     displayCartItems(index, itemId);
     displayCartContent(index);
-}
+};
 
-export function handleAddItem(index, id, totalItems) {
+export const handleAddItem = (index, id, totalItems) => {
     if (id === "increase") updateItemCount(index, "+", totalItems);
     else if (id === "decrease") updateItemCount(index, "-", totalItems);
     computeTotal();
@@ -141,4 +141,4 @@ export function handleAddItem(index, id, totalItems) {
     if (totalItems === 0) {
         emptyCartMessage("emptyMessage", "cartItems");
     }
-}
+};
