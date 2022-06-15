@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>04 - Multiple Checkboxes || Advent of JavaScript</title>
-    <link rel="stylesheet" href="./podcastStyles.css" />
+    <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
+    <div style="margin-right: 20px">
+        <a href="../index.html"><button>Home</button></a>
+    </div>
     <div class="wrapper">
         <div class="cover">
             <img src="./images/podcast-cover.png" alt="Compressed.fm" />
@@ -24,7 +27,7 @@
                 type="checkbox"
                 name="episode-1"
                 id="episode-1"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>1 || Trailer</span>
             </label>
@@ -35,7 +38,7 @@
                 type="checkbox"
                 name="episode-2"
                 id="episode-2"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>2 || James Q Quick Origin Story</span>
             </label>
@@ -46,7 +49,7 @@
                 type="checkbox"
                 name="episode-3"
                 id="episode-3"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>3 || Amy Dutton's Origin Story</span>
             </label>
@@ -57,7 +60,7 @@
                 type="checkbox"
                 name="episode-4"
                 id="episode-4"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>4 || Starting a New Development Project</span>
             </label>
@@ -68,7 +71,7 @@
                 type="checkbox"
                 name="episode-5"
                 id="episode-5"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>5 || How Do you Start a New Design Project?</span>
             </label>
@@ -79,7 +82,7 @@
                 type="checkbox"
                 name="episode-6"
                 id="episode-6"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>6 || Freelancing (Part 1)</span>
             </label>
@@ -90,7 +93,7 @@
                 type="checkbox"
                 name="episode-7"
                 id="episode-7"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>7 || Freelancing (Part 2)</span>
             </label>
@@ -101,7 +104,7 @@
                 type="checkbox"
                 name="episode-8"
                 id="episode-8"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>8 || The Tech Behind jamesqquick.com</span>
             </label>
@@ -112,7 +115,7 @@
                 type="checkbox"
                 name="episode-9"
                 id="episode-9"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>9 || The Tech Behind SelfTeach.me</span>
             </label>
@@ -123,7 +126,7 @@
                 type="checkbox"
                 name="episode-10"
                 id="episode-10"
-                onclick="getElementId(event)"
+                onclick="handleClick(event)"
               />
               <span>10 || Tech Behind SelfTeach.me</span>
             </label>
@@ -131,7 +134,8 @@
             </ul>
         </div>
     </div>
-    <script src="./podcastApp.js"></script>
+
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>

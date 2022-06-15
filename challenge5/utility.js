@@ -147,23 +147,17 @@ const episodes = [{
         name: "Building a Course",
     },
 ];
+
 var firstElement = -1;
 var lastElement = -1;
 
-var shiftPress = false;
-
-document.addEventListener("keydown", (event) => {
-    shiftPress = event.shiftKey;
-});
-
-function getElementId(event) {
+export function getElementId(event, shiftPress) {
     let getId = parseInt(event.target.id.slice(8));
     if (!shiftPress) {
         firstElement = getId;
     } else {
         lastElement = getId;
     }
-    console.log(firstElement, lastElement);
     if (shiftPress) {
         if (firstElement < lastElement) {
             for (let i = firstElement; i < lastElement + 1; i++) {
@@ -174,6 +168,5 @@ function getElementId(event) {
                 document.getElementById("episode-" + i).checked = true;
             }
         }
-        shiftPress = false;
     }
 }
