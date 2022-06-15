@@ -151,7 +151,7 @@ const episodes = [{
 var firstElement = -1;
 var lastElement = -1;
 
-export function getElementId(event, shiftPress) {
+export const getElementId = (event, shiftPress) => {
     let getId = parseInt(event.target.id.slice(8));
     if (!shiftPress) {
         firstElement = getId;
@@ -169,7 +169,7 @@ export function getElementId(event, shiftPress) {
             }
         }
     }
-}
+};
 
 const displayList = (item) => {
     let liElement = document.createElement("li");
