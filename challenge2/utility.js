@@ -120,23 +120,28 @@ export const addToCart = (event, totalItems) => {
     let elementId = event.target.id;
     document.getElementById(elementId).disabled = true;
     let index = findIndex(elementId);
+    let itemId = "item" + (index + 1);
+
     let classname = event.path[0];
     classname.innerText = "In cart";
     classname.className = "in-cart";
+
     updateItemCount(index, "+", totalItems);
     computeTotal();
     emptyCartMessage("cartItems", "emptyMessage");
-    let itemId = "item" + (index + 1);
+
     displayCartItems(index, itemId);
     displayCartContent(index);
 };
 
 export const handleAddItem = (index, id, totalItems) => {
+    let itemId = "item" + (index + 1);
+
     if (id === "increase") updateItemCount(index, "+", totalItems);
     else if (id === "decrease") updateItemCount(index, "-", totalItems);
     computeTotal();
     displayCartContent(index);
-    let itemId = "item" + (index + 1);
+
     displayCartItems(index, itemId);
     if (totalItems === 0) {
         emptyCartMessage("emptyMessage", "cartItems");

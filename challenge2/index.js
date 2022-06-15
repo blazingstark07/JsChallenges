@@ -1,6 +1,6 @@
 import { handleAddItem, addToCart } from "./utility.js";
 
-var totalItems = 0;
+let totalItems = 0;
 document.getElementById("cartItems").style.display = "none";
 
 window.addToCartHandler = (event) => {
