@@ -116,3 +116,23 @@ input[type="text"]:disabled {
 .settings:hover {
     opacity: 1;
 }
+
+.home {
+    background-color: #ed0722;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.outerDiv {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
