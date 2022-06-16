@@ -1,28 +1,44 @@
 body {
-  background: #37B2C3;
+    background: #37b2c3;
 }
 
 .piano {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .white-keys {
- fill: white;
+    fill: white;
 }
 
 .white-keys:hover {
-  fill: #ffd200;
+    fill: #ffd200;
 }
 
 .black-keys {
-  fill: black;
+    fill: black;
 }
 
 .black-keys:hover {
-  fill: #f40082;  
+    fill: #f40082;
 }
 
+.homeButton {
+    justify-self: center;
+    background-color: #f40082;
+    height: 60px;
+    width: 120px;
+    font-size: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.homeDiv {
+    margin-top: -100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
