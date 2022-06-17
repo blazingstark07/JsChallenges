@@ -50,6 +50,7 @@ const computeSubTotal = () => {
     document.getElementById("SubTotal").textContent = `$ ${subTotal.toFixed(2)}`;
     return subTotal;
 };
+
 const computeTotal = () => {
     let baseTotal = computeSubTotal();
     const tax = baseTotal * 0.0975;
@@ -57,6 +58,7 @@ const computeTotal = () => {
     const total = baseTotal + tax;
     document.getElementById("Total").textContent = `$  ${total.toFixed(2)}`;
 };
+
 const updateItemCount = (index, sign, totalItems) => {
     if (sign === "+") {
         menuItems[index].count += 1;
@@ -73,6 +75,7 @@ const updateItemCount = (index, sign, totalItems) => {
         }
     }
 };
+
 const findIndex = (id) => {
     switch (id) {
         case "Fries":
@@ -110,7 +113,7 @@ const emptyCartMessage = (id1, id2) => {
 };
 
 export const addToCart = (event, totalItems) => {
-    const elementId = event.target.id;
+    const elementId = event.target.id; // whether target has disabled prop or not??
     document.getElementById(elementId).disabled = true;
     const index = findIndex(elementId);
     const itemId = "item" + (index + 1);
