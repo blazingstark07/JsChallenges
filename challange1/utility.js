@@ -1,10 +1,11 @@
 const inputValue = document.querySelectorAll("input");
-let totalTime = 0;
 let startSetInterval = false;
+
 const getTotalTime = () => {
     const mins = +inputValue[0].value;
     const secs = +inputValue[1].value;
-    totalTime = mins * 60 + secs;
+
+    return mins * 60 + secs;
 };
 
 const validateTime = () => {
@@ -46,6 +47,7 @@ const startTimerEvents = (msg, state, event) => {
 const changeColor = (color) => {
     document.getElementById("circleNode").style.stroke = color;
 };
+
 const timeup = () => {
     changeColor("#900a0a");
     clearInterval(startSetInterval);
@@ -54,14 +56,14 @@ const timeup = () => {
     window.alert("Time's Up!!!");
 };
 
-const updateTimer = () => {
+const updateTimer = (localTotalTime) => {
     startSetInterval = setInterval(() => {
-        if (totalTime < 1) {
+        if (localTotalTime < 1) {
             timeup();
         } else {
-            totalTime -= 1;
-            inputValue[0].value = parseInt(totalTime / 60).toFixed(0);
-            inputValue[1].value = totalTime % 60;
+            localTotalTime -= 1;
+            inputValue[0].value = parseInt(localTotalTime / 60).toFixed(0);
+            inputValue[1].value = localTotalTime % 60;
         }
     }, 1000);
 };
@@ -70,8 +72,8 @@ export const startStopTimer = (event) => {
     const innerContent = event.target.textContent;
     if (innerContent === "start" && validateTime()) {
         startTimerEvents("stop", true, event);
-        getTotalTime();
-        updateTimer();
+        let totalTIme = getTotalTime();
+        updateTimer(totalTIme);
         changeColor("#09a65a");
     } else {
         startTimerEvents("start", false, event);
