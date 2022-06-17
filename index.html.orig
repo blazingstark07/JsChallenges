@@ -23,28 +23,29 @@
           <a href="./challenge2/index.html">Challenge2: Shopping Cart</a>
         </button>
             <button><a href="./Challenge3/index.html">Challenge3: Piano</a></button>
-            <button>Challenge4: Jiggle Keys</button>
-=======
-            <button>Challenge1: Stopwatch</button>
-            <button>Challenge2: Shopping Cart</button>
-            <button>Challenge3: Piano</button>
             <button>
-          <a
-            style="text-decoration: none; color: white"
-            href="./Challenge4/index.html"
-            >Challenge4: Jiggle Keys</a
-          >
+          <a href="./Challenge4/index.html">Challenge4: Jiggle Keys</a>
         </button>
->>>>>>> feature/keyboard:home.html
             <button>Challenge5: scrap list</button>
         </div>
     </div>
 
-<<<<<<< HEAD:index.html
-    <script type="module" src="./index.js" async defer></script>
+    <script src="./index.js"></script>
 =======
-    <script type="module" src="./index.js"></script>
->>>>>>> feature/keyboard:home.html
+            <button>Challenge1: Stopwatch</button>
+            <button>Challenge2: Shopping Cart</button>
+            <button>Challenge3: Piano</button>
+            <button>Challenge4: Jiggle Keys</button>
+            <button>
+          <a href="./challenge5/index.html" style="text-decoration: none"
+            >Challenge5: scrap list</a
+          >
+        </button>
+        </div>
+    </div>
+
+    <script src="./index.js" async defer></script>
+>>>>>>> feature/podcasts:home.html
 </body>
 
 </html>
