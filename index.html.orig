@@ -22,25 +22,29 @@
             <button>
           <a href="./challenge2/index.html">Challenge2: Shopping Cart</a>
         </button>
-
-            <button>Challenge3: Piano</button>
+            <button><a href="./Challenge3/index.html">Challenge3: Piano</a></button>
+            <button>Challenge4: Jiggle Keys</button>
 =======
             <button>Challenge1: Stopwatch</button>
             <button>Challenge2: Shopping Cart</button>
+            <button>Challenge3: Piano</button>
             <button>
-          <a href="./Challenge3//index.html">Challenge3: Piano</a>
+          <a
+            style="text-decoration: none; color: white"
+            href="./Challenge4/index.html"
+            >Challenge4: Jiggle Keys</a
+          >
         </button>
->>>>>>> feature/piano:home.html
-            <button>Challenge4: Jiggle Keys</button>
+>>>>>>> feature/keyboard:home.html
             <button>Challenge5: scrap list</button>
         </div>
     </div>
 
 <<<<<<< HEAD:index.html
-    <script src="./index.js" async defer></script>
-=======
     <script type="module" src="./index.js" async defer></script>
->>>>>>> feature/piano:home.html
+=======
+    <script type="module" src="./index.js"></script>
+>>>>>>> feature/keyboard:home.html
 </body>
 
 </html>
