@@ -1,9 +1,9 @@
-let inputValue = document.querySelectorAll("input");
+const inputValue = document.querySelectorAll("input");
 let totalTime = 0;
 let startSetInterval = false;
 const getTotalTime = () => {
-    const mins = parseInt(inputValue[0].value);
-    const secs = parseInt(inputValue[1].value);
+    const mins = +inputValue[0].value;
+    const secs = +inputValue[1].value;
     totalTime = mins * 60 + secs;
 };
 
@@ -19,8 +19,8 @@ const validateTime = () => {
         window.alert("Please enter only integers!!!");
         return false;
     } else {
-        if (parseInt(mins) < 0 || parseInt(secs) < 0) {
-            window.alert("Please enter positive values only");
+        if (+mins < 0 || +secs < 0 || +mins > 60 || +secs > 60) {
+            window.alert("Please enter valid range");
             return false;
         }
         return true;
@@ -40,7 +40,7 @@ const decideSettingState = (state) => {
     document.getElementsByClassName("settings")[0].disabled = state;
 };
 const startTimerEvents = (msg, state, event) => {
-    event.target.innerHTML = msg;
+    event.target.textContent = msg;
     decideSettingState(state);
 };
 const changeColor = (color) => {
@@ -67,7 +67,7 @@ const updateTimer = () => {
 };
 
 export const startStopTimer = (event) => {
-    let innerContent = event.target.textContent;
+    const innerContent = event.target.textContent;
     if (innerContent === "start" && validateTime()) {
         startTimerEvents("stop", true, event);
         getTotalTime();
