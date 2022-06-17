@@ -1,1 +1,3 @@
-console.log(document.querySelectorAll("button"));
+import { startJiggle } from "./utility.js";
+
+startJiggle();
