@@ -151,31 +151,29 @@ const episodes = [{
 let firstElement = -1;
 let lastElement = -1;
 
-export const getTickDone = (event, shiftPress) => {
-    let getId = parseInt(event.target.id.slice(8));
-    if (!shiftPress) {
-        firstElement = getId;
-    } else {
-        lastElement = getId;
+const changeCheckBoxProperty = (first, last) => {
+    for (let i = first; i < last + 1; i++) {
+        document.getElementById("episode-" + i).checked = true;
     }
-    if (shiftPress) {
-        if (firstElement < lastElement) {
-            for (let i = firstElement; i < lastElement + 1; i++) {
-                document.getElementById("episode-" + i).checked = true;
-            }
-        } else {
-            for (let i = lastElement; i < firstElement + 1; i++) {
-                document.getElementById("episode-" + i).checked = true;
-            }
-        }
+};
+
+export const getTickDone = (event, isShiftPressed) => {
+    let getId = +event.target.id.slice(8);
+
+    !isShiftPressed ? (firstElement = getId) : (lastElement = getId);
+
+    if (isShiftPressed) {
+        firstElement < lastElement ?
+            changeCheckBoxProperty(firstElement, lastElement) :
+            changeCheckBoxProperty(lastElement, firstElement);
     }
 };
 
 const displayList = (item) => {
-    let liElement = document.createElement("li");
-    let labelElement = document.createElement("label");
-    let inputElement = document.createElement("input");
-    let spanElement = document.createElement("span");
+    const liElement = document.createElement("li");
+    const labelElement = document.createElement("label");
+    const inputElement = document.createElement("input");
+    const spanElement = document.createElement("span");
 
     labelElement.setAttribute("for", `episode-${item.id}`);
     inputElement.type = "checkbox";
@@ -191,9 +189,9 @@ const displayList = (item) => {
     liElement.appendChild(labelElement);
     return liElement;
 };
-export const addToUl = () => {
-    let ulElement = document.querySelector(".episodes");
-    for (let i = 0; i < episodes.length; i++) {
-        ulElement.appendChild(displayList(episodes[i]));
-    }
+
+export const renderList = () => {
+    const ulElement = document.querySelector(".episodes");
+
+    episodes.forEach((episode) => ulElement.appendChild(displayList(episode)));
 };

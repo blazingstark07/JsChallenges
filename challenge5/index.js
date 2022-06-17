@@ -1,12 +1,12 @@
-import { getTickDone, addToUl } from "./utility.js";
+import { getTickDone, renderList } from "./utility.js";
 
-let shiftPress = false;
-addToUl();
+let isShiftPressed = false;
+renderList();
 
 window.handleClick = (event) => {
     document.addEventListener("keydown", (event) => {
-        shiftPress = event.shiftKey;
+        isShiftPressed = event.shiftKey;
     });
-    getTickDone(event, shiftPress);
-    shiftPress = false;
+    getTickDone(event, isShiftPressed);
+    isShiftPressed = false;
 };
