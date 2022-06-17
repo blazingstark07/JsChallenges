@@ -9,7 +9,7 @@ window.addToCartHandler = (event) => {
 };
 
 window.clickedOnImgHandler = (index, event) => {
-    let id = event.target.parentNode.id;
+    const id = event.target.parentNode.id;
     id == "increase" ? (totalItems += 1) : (totalItems -= 1);
     handleAddItem(index, id, totalItems);
 };

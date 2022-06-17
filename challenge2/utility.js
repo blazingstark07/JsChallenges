@@ -47,20 +47,15 @@ const computeSubTotal = () => {
     for (let i = 0; i < menuItems.length; i++) {
         subTotal += menuItems[i].price * menuItems[i].count;
     }
-    document.getElementById("SubTotal").innerHTML = `$ ${parseFloat(
-    subTotal
-  ).toFixed(2)}`;
+    document.getElementById("SubTotal").textContent = `$ ${subTotal.toFixed(2)}`;
     return subTotal;
 };
 const computeTotal = () => {
-    let tax = 0;
     let baseTotal = computeSubTotal();
-    tax = baseTotal * 0.0975;
-    document.getElementById("Tax").innerHTML = `$  ${parseFloat(tax).toFixed(2)}`;
-    let total = baseTotal + tax;
-    document.getElementById("Total").innerHTML = `$  ${parseFloat(total).toFixed(
-    2
-  )}`;
+    const tax = baseTotal * 0.0975;
+    document.getElementById("Tax").textContent = `$  ${tax.toFixed(2)}`;
+    const total = baseTotal + tax;
+    document.getElementById("Total").textContent = `$  ${total.toFixed(2)}`;
 };
 const updateItemCount = (index, sign, totalItems) => {
     if (sign === "+") {
@@ -71,8 +66,8 @@ const updateItemCount = (index, sign, totalItems) => {
         totalItems -= 1;
         if (menuItems[index].count < 1) {
             menuItems[index].count = 0;
-            let changeAddtoCart = document.getElementsByTagName("button");
-            changeAddtoCart[index].innerHTML = "Add to Cart";
+            const changeAddtoCart = document.getElementsByTagName("button");
+            changeAddtoCart[index].textContent = "Add to Cart";
             changeAddtoCart[index].className = "add";
             changeAddtoCart[index].disabled = false;
         }
@@ -102,13 +97,11 @@ const displayCartItems = (index, itemId) => {
 };
 
 const displayCartContent = (index) => {
-    let updateQuantity = document.getElementsByClassName("quantity");
-    updateQuantity[2 * index].innerHTML = menuItems[index].count;
-    updateQuantity[2 * index + 1].innerHTML = menuItems[index].count;
-    document.getElementsByClassName("subtotal")[index].innerHTML = `$ 
-        ${parseFloat(menuItems[index].count * menuItems[index].price).toFixed(
-          2
-        )}`;
+    const updateQuantity = document.getElementsByClassName("quantity");
+    updateQuantity[2 * index].textContent = menuItems[index].count;
+    updateQuantity[2 * index + 1].textContent = menuItems[index].count;
+    document.getElementsByClassName("subtotal")[index].textContent = `$ 
+        ${+(menuItems[index].count * menuItems[index].price).toFixed(2)}`;
 };
 
 const emptyCartMessage = (id1, id2) => {
@@ -117,13 +110,13 @@ const emptyCartMessage = (id1, id2) => {
 };
 
 export const addToCart = (event, totalItems) => {
-    let elementId = event.target.id;
+    const elementId = event.target.id;
     document.getElementById(elementId).disabled = true;
-    let index = findIndex(elementId);
-    let itemId = "item" + (index + 1);
+    const index = findIndex(elementId);
+    const itemId = "item" + (index + 1);
 
-    let classname = event.path[0];
-    classname.innerText = "In cart";
+    const classname = event.path[0];
+    classname.textContent = "In cart";
     classname.className = "in-cart";
 
     updateItemCount(index, "+", totalItems);
@@ -135,7 +128,7 @@ export const addToCart = (event, totalItems) => {
 };
 
 export const handleAddItem = (index, id, totalItems) => {
-    let itemId = "item" + (index + 1);
+    const itemId = "item" + (index + 1);
 
     if (id === "increase") updateItemCount(index, "+", totalItems);
     else if (id === "decrease") updateItemCount(index, "-", totalItems);
