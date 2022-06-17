@@ -1,8 +1,8 @@
-import { startStopTimer, setting } from "./utility.js";
+import { toggleTimerState, setInput } from "./utility.js";
 window.settingHandler = () => {
-    setting(false);
+    setInput(false);
 };
 
 window.startHandler = (event) => {
-    startStopTimer(event);
+    toggleTimerState(event);
 };
