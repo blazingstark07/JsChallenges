@@ -8,7 +8,7 @@ window.addToCartHandler = (event) => {
     totalItems += 1;
 };
 
-window.clickedOnImgHandler = (index, event) => {
+window.quantityHandler = (index, event) => {
     const id = event.target.parentNode.id;
     id == "increase" ? (totalItems += 1) : (totalItems -= 1);
     handleAddItem(index, id, totalItems);

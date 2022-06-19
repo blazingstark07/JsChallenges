@@ -162,6 +162,7 @@ export const getTickDone = (event, isShiftPressed) => {
 
     !isShiftPressed ? (firstElement = getId) : (lastElement = getId);
 
+
     if (isShiftPressed) {
         firstElement < lastElement ?
             changeCheckBoxProperty(firstElement, lastElement) :

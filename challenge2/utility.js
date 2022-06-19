@@ -113,8 +113,8 @@ const emptyCartMessage = (id1, id2) => {
 };
 
 export const addToCart = (event, totalItems) => {
-    const elementId = event.target.id; // whether target has disabled prop or not??
-    document.getElementById(elementId).disabled = true;
+    const elementId = event.target.id;
+    event.target.disabled = true;
     const index = findIndex(elementId);
     const itemId = "item" + (index + 1);
 
