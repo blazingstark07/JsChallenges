@@ -1,0 +1,36 @@
+{
+  "name": "jschallenges",
+  "version": "1.0.0",
+  "description": "challenges given on vanilla js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blazingstark07/JsChallenges.git"
+  },
+  "author": "pranjal yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blazingstark07/JsChallenges/issues"
+  },
+  "homepage": "https://github.com/blazingstark07/JsChallenges#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged ng lint ng test",
+      "pre-push": "ng build --aot true"
+    }
+  }
+}
