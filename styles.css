@@ -51,4 +51,10 @@ button {
     border-radius: 20px;
     padding: 0 10px;
     background-color: #f94c66;
+    color: whitesmoke;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }

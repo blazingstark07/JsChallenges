@@ -1,0 +1,45 @@
+{
+  "name": "jschallenges",
+  "version": "1.0.0",
+  "description": "challenges given on vanilla js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blazingstark07/JsChallenges.git"
+  },
+  "author": "pranjal yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blazingstark07/JsChallenges/issues"
+  },
+  "homepage": "https://github.com/blazingstark07/JsChallenges#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "htmlhint": "^1.1.4",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "stylelint": "^14.9.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --cache --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.html": "htmlhint"
+  },
+  "dependencies": {
+    "htmllint": "^0.8.0"
+  }
+}
