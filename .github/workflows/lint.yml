@@ -20,6 +20,6 @@ jobs:
 
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
-        run: npm ci
-        run: npx eslint . --fix
-        run: npx pretty-quick .
+        - run: npm ci
+        - run: npx eslint . --fix
+        - run: npx pretty-quick .
