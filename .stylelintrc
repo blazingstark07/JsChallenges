@@ -1,6 +1,7 @@
 {
     "extends": "stylelint-config-standard",
     "rules": {
-        "matterialize/stylelint-require-units": true
+        "color-no-invalid-hex": true,
+        "indentation": 4
     }
 }
