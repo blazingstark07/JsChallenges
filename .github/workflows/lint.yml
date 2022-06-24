@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 12
 
@@ -23,12 +23,12 @@ jobs:
         run: npm ci
 
       - name: Run linters
-        uses: wearerequired/lint-action@v2
+        uses: wearerequired/lint-action@v3
         with:
           eslint: true
           prettier: true
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - uses: actions-hub/stylelint@master
         env:
           PATTERN: "**.css"
