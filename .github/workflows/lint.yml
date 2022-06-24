@@ -23,13 +23,5 @@ jobs:
         run: npm ci
 
       - name: Run linters
-        uses: wearerequired/lint-action@v3
-        with:
-          eslint: true
-          prettier: true
-
-      - uses: actions/checkout@v3
-      - uses: actions-hub/stylelint@master
-        env:
-          PATTERN: "**.css"
-          INDENT_SPACES: 4
+        run: npx eslint . --fix
+        run: npx pretty-quick
