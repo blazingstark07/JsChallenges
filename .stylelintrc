@@ -1,6 +1,8 @@
 {
-  "plugins": ["stylelint-require-units"],
-  "rules": {
-    "matterialize/stylelint-require-units": true
-  }
+    "extends": ["stylelint-config-standard"],
+    "rules": {
+        "color-no-invalid-hex": true,
+        "indentation": 4,
+        "no-missing-end-of-source-newline": null
+    }
 }
