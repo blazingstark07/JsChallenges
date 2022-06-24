@@ -5,8 +5,8 @@ const getRandomJiggle = () => {
 const utilityKeys = ["CAPSLOCK", "TAB", "SHIFT", "ENTER"];
 
 const startRandomJiggle = () => {
-    let randomKey = getRandomJiggle();
-    let randomJiggleKey = document.querySelectorAll(".key")[randomKey];
+    const randomKey = getRandomJiggle();
+    const randomJiggleKey = document.querySelectorAll(".key")[randomKey];
 
     randomJiggleKey.className === "key" ?
         (randomJiggleKey.className = "key jiggle") :
@@ -14,9 +14,9 @@ const startRandomJiggle = () => {
 };
 
 const changeJiggle = (event) => {
-    let jigglingKey = document.getElementsByClassName("jiggle")[0];
-    let pressedKey = event.key.toUpperCase();
-    let jigglingKeyName = jigglingKey.getAttribute("data-key");
+    const jigglingKey = document.getElementsByClassName("jiggle")[0];
+    const pressedKey = event.key.toUpperCase();
+    const jigglingKeyName = jigglingKey.getAttribute("data-key");
 
     if (jigglingKeyName === pressedKey) {
         startRandomJiggle();
