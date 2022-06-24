@@ -1,8 +1,9 @@
 name: Lint
 on:
-  push:
+  pull_request:
     branches:
-      - feature/GithubActions
+      - dev
+      - main
 jobs:
   test-ci:
     runs-on: ubuntu-latest
