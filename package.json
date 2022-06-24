@@ -42,7 +42,9 @@
             "eslint --fix",
             "prettier --write",
             "git add"
-        ]
+        ],
+        "*.html": "htmlhint",
+        "*.css": "stylelint"
     },
     "dependencies": {
         "htmllint": "^0.8.0"
