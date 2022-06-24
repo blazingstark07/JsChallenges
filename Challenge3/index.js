@@ -1,4 +1,4 @@
-import { playAudio } from "./utility.js";
+import { playAudio } from './utility.js';
 window.onClickHandler = (event) => {
-    playAudio(event);
+	playAudio(event);
 };

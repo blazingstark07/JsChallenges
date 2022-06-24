@@ -1,3 +1,3 @@
-import { startJiggle } from "./utility.js";
+import { startJiggle } from './utility.js';
 
 startJiggle();
