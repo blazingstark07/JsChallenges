@@ -1,23 +1,16 @@
 name: Lint
-
 on:
   push:
     branches:
-      - "feature/GithubActions"
+      - feature/GithubActions
 jobs:
-  run-linters:
-    name: Run linters
+  test-ci:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: "14"
-      - name: Install Node.js dependencies
-        - run: npm ci
-        - run: npx eslint . --fix
-        - run: npx pretty-quick .
+      - run: npm ci
+      - run: npx eslint . --fix
+      - run: npx pretty-quick .
