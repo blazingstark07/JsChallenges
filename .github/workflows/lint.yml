@@ -2,7 +2,8 @@ name: Lint
 
 on:
   pull_request:
-    branches: -feature/GithubActions
+    branches:
+      - feature/GithubActions
 jobs:
   run-linters:
     name: Run linters
